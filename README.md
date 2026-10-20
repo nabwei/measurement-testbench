@@ -1,5 +1,7 @@
 # Measurement Testbench
 
+[![Tests](https://github.com/nabwei/measurement-testbench/actions/workflows/tests.yml/badge.svg)](https://github.com/nabwei/measurement-testbench/actions/workflows/tests.yml)
+
 Ein ausführbares C++-/Python-Projekt für eine simulierte Messkette:
 Messwerte anfordern, Antworten prüfen, Zeitfehler erkennen und Ergebnisse
 als CSV und JSON speichern.
@@ -7,6 +9,9 @@ als CSV und JSON speichern.
 Das Projekt ist eine unabhängige Demonstration mit vollständig synthetischen
 Daten und einem eigens definierten Beispielprotokoll. Es enthält keine
 Institutssoftware, Abschlussarbeitsdaten oder Gerätekonfigurationen.
+
+Mit KI-Unterstützung entwickelt, einschließlich Code, Tests und Dokumentation.
+Die ausführbaren Prüfungen und ihre CI-Ergebnisse sind im Repository nachvollziehbar.
 
 ```mermaid
 flowchart LR
@@ -127,7 +132,7 @@ Im JSON-Bericht beziehen sich Timing-Indizes auf die Liste der akzeptierten
 Samples, beginnend bei 0. `accepted_sequences` ordnet diese Positionen den
 Protokoll-Sequenznummern zu. Das ist bei einer fehlenden Antwort relevant.
 
-## Prüfung und Grenzen
+## Prüfung
 
 Die Tests prüfen den CRC-Referenzwert, gültige und fehlerhafte Requests,
 alle Fehlerinjektionen, die Python-/C++-Kommunikation, Reportdateien,
@@ -135,9 +140,17 @@ Exitcodes, Toleranzgrenzen und große Zeitstempel.
 Der [Workflow](.github/workflows/tests.yml) konfiguriert Builds und Tests für
 `windows-2022` und `ubuntu-24.04`.
 Am 20.10.2026 bestanden lokal unter Windows mit MSVC 19.44 und Python 3.12.10
-acht GoogleTest-Fälle und 30 pytest-Fälle. Alle sechs Demo-Szenarien wurden
+acht GoogleTest-Fälle und ursprünglich 30 pytest-Fälle. Alle sechs Demo-Szenarien wurden
 ausgeführt. Zusätzlich bestanden beide Jobs für Windows und Linux im
 [GitHub-Actions-Lauf vom 20.10.2026](https://github.com/nabwei/measurement-testbench/actions/runs/39376802186).
+
+Die überarbeitete Python-Suite enthält zusätzlich CRC-gültige Frames mit
+falschem Status, Sync- oder Versionsbyte sowie doppelte und fremde Sequenzen.
+Damit bestehen lokal 35 pytest-Fälle. Die Sequenztests ersetzen nur die externe
+Prozessantwort durch synthetische Frames; die vorhandenen Integrationstests
+verwenden weiterhin den echten C++-Simulator.
+
+## Limitations
 
 - Die Transporthülle übergibt vollständige Frames als Hex-Zeilen.
   Ein UART-Treiber, Byte-Stream-Resynchronisation und Wiederholversuche sind
@@ -159,6 +172,7 @@ and writes CSV/JSON reports. Six deterministic scenarios cover clean data and
 injected transport or timing faults. GoogleTest and pytest exercise the C++
 component and the cross-language pipeline. The project does not include real
 instrument software or measurement data.
+Developed with AI assistance for implementation, tests and documentation.
 
 ## Lizenz / License
 
