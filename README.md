@@ -136,7 +136,8 @@ Der [Workflow](.github/workflows/tests.yml) konfiguriert Builds und Tests für
 `windows-2022` und `ubuntu-24.04`.
 Am 20.10.2026 bestanden lokal unter Windows mit MSVC 19.44 und Python 3.12.10
 acht GoogleTest-Fälle und 30 pytest-Fälle. Alle sechs Demo-Szenarien wurden
-ausgeführt. Ein GitHub-CI-Lauf und ein Linux-Lauf wurden damit noch nicht bestätigt.
+ausgeführt. Zusätzlich bestanden beide Jobs für Windows und Linux im
+[GitHub-Actions-Lauf vom 20.10.2026](https://github.com/nabwei/measurement-testbench/actions/runs/39376802186).
 
 - Die Transporthülle übergibt vollständige Frames als Hex-Zeilen.
   Ein UART-Treiber, Byte-Stream-Resynchronisation und Wiederholversuche sind
