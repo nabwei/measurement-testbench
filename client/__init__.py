@@ -1,0 +1,1 @@
+"""Synthetic measurement test bench."""

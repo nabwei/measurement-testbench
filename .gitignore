@@ -1,0 +1,11 @@
+/build/
+/.venv/
+/out/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.vs/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
