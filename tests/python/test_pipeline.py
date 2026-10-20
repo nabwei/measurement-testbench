@@ -3,6 +3,7 @@ import csv
 import json
 import os
 import subprocess
+import struct
 import sys
 from pathlib import Path
 
@@ -105,6 +106,39 @@ def test_cli_saves_machine_readable_results_and_returns_quality_status(
 def test_python_rejects_bad_reply_length():
     with pytest.raises(ValueError, match="length"):
         parse_reply(b"")
+
+
+def encoded_reply(sequence, *, sync=0xD3, version=1, status=0):
+    body = struct.pack("<BBBBIH", sync, version, sequence, status, 1000 * sequence, 1000)
+    return body + binascii.crc_hqx(body, 0xFFFF).to_bytes(2, "little")
+
+
+@pytest.mark.parametrize(("fields", "error"), [
+    ({"status": 4}, "device status 4"),
+    ({"sync": 0xD2}, "invalid reply header"),
+    ({"version": 2}, "invalid reply header"),
+])
+def test_semantically_invalid_reply_is_rejected_even_with_valid_crc(fields, error):
+    with pytest.raises(ValueError, match=error):
+        parse_reply(encoded_reply(2, **fields))
+
+
+@pytest.mark.parametrize("extra_sequence", [3, 8], ids=["duplicate", "foreign"])
+def test_extra_sequence_is_reported_and_not_accepted(monkeypatch, tmp_path, extra_sequence):
+    frames = [encoded_reply(sequence).hex() for sequence in range(8)]
+    frames.append(encoded_reply(extra_sequence).hex())
+    process = subprocess.CompletedProcess([], 0, stdout="\n".join(frames), stderr="")
+    monkeypatch.setattr(subprocess, "run", lambda *arguments, **options: process)
+
+    samples, report = acquire(tmp_path / "synthetic-counterpart", "clean", count=8)
+
+    assert [sample.sequence for sample in samples] == list(range(8))
+    assert report["valid_samples"] == 8
+    assert report["missing_sequences"] == []
+    assert report["transport_errors"] == [
+        {"reply_line": 9, "error": "unexpected or duplicate sequence"}
+    ]
+    assert report["timing_and_transport_pass"] is False
 
 
 def test_unavailable_simulator_returns_execution_error_without_report(tmp_path):
