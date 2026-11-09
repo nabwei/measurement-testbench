@@ -1,4 +1,4 @@
-> **New AI-assisted extension:** [05_MEASUREMENT_TIMING](05_MEASUREMENT_TIMING/) — reproducible software/simulation modules. [Portfolio overview](https://github.com/nabwei/engineering-portfolio), [AI disclosure](docs/AI_DEVELOPMENT.md). Existing project below is preserved.
+**Additional modules:** [05_MEASUREMENT_TIMING](05_MEASUREMENT_TIMING/). [Portfolio](https://github.com/nabwei/engineering-portfolio) · [Development notes](docs/AI_DEVELOPMENT.md).
 
 # Measurement Testbench
 
@@ -12,7 +12,6 @@ Das Projekt ist eine unabhängige Demonstration mit vollständig synthetischen
 Daten und einem eigens definierten Beispielprotokoll. Es enthält keine
 Institutssoftware, Abschlussarbeitsdaten oder Gerätekonfigurationen.
 
-Mit KI-Unterstützung entwickelt, einschließlich Code, Tests und Dokumentation.
 Die ausführbaren Prüfungen und ihre CI-Ergebnisse sind im Repository nachvollziehbar.
 
 ```mermaid
