@@ -9,3 +9,13 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+.venv*/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+**/build*/
+**/datasets/
+**/install/
+**/log/
+08_TEST_RESULTS/

@@ -1,0 +1,19 @@
+{
+  "source_checkpoint": "37b38317c38829d685ba0c4c430984eea5f19fa6",
+  "source_archive_sha256": "fc24f5b8449f6952f55cd73f0d3e3dbddd3a884d8ae9782b1b7d8a831a759d7f",
+  "selected_original_file_sha256": {
+    "05_MEASUREMENT_TIMING/AUDIT.md": "68c4109a9c05809a31afe122e7eebedd67b358988f6455ee63871bcaf2ada901",
+    "05_MEASUREMENT_TIMING/README.md": "c48c53348a4cacc4fe29d4b73436414c5dd56cc165d7c6adda0aa7f93e3f8a83",
+    "05_MEASUREMENT_TIMING/analyze_ptp_log.py": "b3f1c3a51e1525a1434d8be2b088cabd8c58df35cfcfa714c2aab213f58d34d4",
+    "05_MEASUREMENT_TIMING/demo.py": "869469da5c44e3774ad7c40129f77c7b286b36b5b320a90cd197a35c5436ad4b",
+    "05_MEASUREMENT_TIMING/linux_clock_probe.py": "9518981655e1d78529f30ac1c94bd012e7e958b9f98c6f48c05a57c9ea64875a",
+    "05_MEASUREMENT_TIMING/requirements-tested.txt": "27eea077e5bd89b68729ef63db0dd7729685413e90d7e131b50b0de20980786c",
+    "05_MEASUREMENT_TIMING/run_ptp_namespace.sh": "75b5ce5b0137a3d850b37c314efb33657a2ec3090569667c5f8ace4c8985893b",
+    "05_MEASUREMENT_TIMING/tests/test_measurement.py": "7c493cf1681be7b892a4da8fb5622cf77eaf9f8c4c40cf90c46efde201447414",
+    "05_MEASUREMENT_TIMING/timing.py": "24c10ce6e5ab06bc03d551d86241203d33177c79487695006dfb4b565ed9eaea",
+    "05_MEASUREMENT_TIMING/uncertainty.py": "0f36eb1c4d7739680e2d87ed7807a2444854968b039cd73ed8f2be5fe05b214f",
+    "05_MEASUREMENT_TIMING/uncertainty_walkthrough.ipynb": "990ff80dcc450e71b3d42d27e2bfce5e46595b49570d98a35e492ffb68e6239e",
+    "05_MEASUREMENT_TIMING/validate_review.py": "9b3d3463b99b019ce0043da826bb2c5ff2c8c8a50cc1f7d180551a25848d8e0c"
+  },
+  "note": "Original selected bytes before public documentation/CI adaptation. Production algorithms are unchanged; current public files are identified by their Git commit."
+}

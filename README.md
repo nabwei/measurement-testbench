@@ -1,3 +1,5 @@
+> **New AI-assisted extension:** [05_MEASUREMENT_TIMING](05_MEASUREMENT_TIMING/) — reproducible software/simulation modules. [Portfolio overview](https://github.com/nabwei/engineering-portfolio), [AI disclosure](docs/AI_DEVELOPMENT.md). Existing project below is preserved.
+
 # Measurement Testbench
 
 [![Tests](https://github.com/nabwei/measurement-testbench/actions/workflows/tests.yml/badge.svg)](https://github.com/nabwei/measurement-testbench/actions/workflows/tests.yml)
